@@ -13,9 +13,9 @@ routes.post('/users/login',controllerUser.iniciarSesion)
 routes.post('/users/valid',controllerUser.validateUser)
 
 routes.post('/inmueble/create',controllerInmueble.crearInmueble)
-
 routes.get('/inmueble/listar',controllerInmueble.listarInmuebles)
 
-routes.get('/admin/users/',protedVerify.validarToken,protedVerify.validarRol(["Administrador"]),controllerAdmin.listarUsuarios)
+
+routes.get('/admin/users/',controllerAdmin.listarUsuarios)
 
 module.exports = routes
