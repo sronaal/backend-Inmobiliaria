@@ -7,6 +7,7 @@ const jwtVerify = require('../config/validatedAuth-Jwt')
 exports.registrarUsuario = async (req,res) =>{
 
     // Validaciones de Datos
+
     if(req.body.correo == undefined) return res.status(401).json({"Mensaje":"El Usuario es obligatorio"})
     
     const usuario = await modelUsuario.findOne({correo: req.body.correo})
@@ -40,7 +41,7 @@ exports.iniciarSesion = async (req,res) =>{
     let IdUser = usuario._id
     let rol = usuario.Rol
     const token = jwtVerify.crearToken(IdUser,rol)
-    return res.status(201).json({token}) 
+    return res.status(201).json({"token":token,"rol":rol}) 
 
 }
 
