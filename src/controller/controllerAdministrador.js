@@ -7,3 +7,7 @@ exports.listarUsuarios = async (req,res) =>{
     .then((data) => res.status(200).json(data))
     .catch((error) => res.status(300).json(error) )
 }
+
+exports.editarUsuario = async (req,res) =>{
+    
+}
